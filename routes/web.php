@@ -21,3 +21,6 @@ Route::get('product',['as' => 'getProduct', 'uses' => 'ProductController@getProd
 Route::post('Add','ProductController@postProductAdd');
 Route::post('Update','ProductController@postProductUpdate');
 Route::post('Delete','ProductController@postProductDelete');
+
+Route::get('createuser','UserController@getCreateUser');
+Route::get('listuser','UserController@getListUser');

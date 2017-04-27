@@ -217,3 +217,17 @@ body {
     margin-right: 10px;
     width: 110px;
 }
+
+.wrapper-group {
+    width: 700px;
+    margin: auto;
+}
+
+.wrapper-group h2 {
+    text-align: center;
+}
+
+.submit{
+    text-align: center;
+    margin-top: 20px;
+}

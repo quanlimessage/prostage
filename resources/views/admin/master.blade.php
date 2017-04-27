@@ -9,8 +9,9 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="../css/style.css">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     </head>
-    <body>
+    <body ng-app="">
         <div class="nav-side-menu">
             <div class="brand"><a href="{{url('')}}"><img src="../image/logo.png" alt="logo"></a></div>
             <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
@@ -59,11 +60,13 @@
                         </a>
                     </li>
 
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-users fa-lg"></i> Users
-                        </a>
+                    <li data-toggle="collapse" data-target="#user" class="collapsed">
+                        <a href="#"><i class="fa fa-users fa-lg"></i> Users <span class="arrow"></span> </a>
                     </li>
+                    <ul class="sub-menu collapse" id="user">
+                        <li><a href="{{url('listuser')}}">List user</a></li>
+                        <li><a href="{{url('createuser')}}">Create user</a></li>
+                    </ul>
                 </ul>
             </div>
         </div>

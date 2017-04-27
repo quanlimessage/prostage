@@ -17,10 +17,10 @@
                 'password' => 'required|min:8'
             ];
             $messages = [
-                'email.required' => 'Email là trường bắt buộc',
-                'email.email' => 'Email không đúng định dạng',
-                'password.required' => 'Mật khẩu là trường bắt buộc',
-                'password.min' => 'Mật khẩu phải chứa ít nhất 8 ký tự',
+                'email.required' => 'Email is required.',
+                'email.email' => 'Invalid email address.',
+                'password.required' => 'Password is required..',
+                'password.min' => 'Password must contain at least 8 characters',
             ];
             $validator = Validator::make($request->all(), $rules, $messages);
     
@@ -33,7 +33,7 @@
                 if( Auth::attempt(['email' => $email, 'password' =>$password], $request->has('remember'))) {
                     return redirect()->intended('/');
                 } else {
-                    $errors = new MessageBag(['errorlogin' => 'Email hoặc mật khẩu không đúng']);
+                    $errors = new MessageBag(['errorlogin' => 'Email or passwords not correct.']);
                     return redirect()->back()->withInput()->withErrors($errors);
                 }
             }

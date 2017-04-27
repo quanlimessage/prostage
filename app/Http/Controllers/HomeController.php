@@ -7,6 +7,7 @@
     {
         public function __construct() {
             $this->middleware('auth',['except' => 'getLogout']);
+            return view('admin.login.login');
         }
     
         public function getIndex() {
