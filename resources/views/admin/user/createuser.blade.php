@@ -1,10 +1,26 @@
 @extends('admin.master')
 @section('content')
 <main id="main">
-    <form action="" method="POST" role="form" name="form">
+    <form action="{{url('createuser')}}" method="POST" enctype="multipart/form-data" role="form" name="form">
         <div class="wrapper-group">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <h2>CREATE USERS</h2>
+            @if(!$errors->isEmpty())
+            <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+				<ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+			@endif
+            @if(Session::has('flash_message'))
+            <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+				{!! Session::get('flash_message') !!}
+            </div>
+			@endif
             <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                 <input id="msg" type="text" class="form-control" name="name" required ng-model="name" placeholder="Please enter your name! ">
@@ -24,13 +40,14 @@
             <span ng-show="form.password.$touched && form.password.$error.minlength" style="color: #f00;">The password least 8 characters.</span>
             <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                <input id="msg" type="password2" class="form-control" name="password2" ng-model="password2" required ng-minlength="8" placeholder="Please enter your password! ">
+                <input id="msg" type="password" class="form-control" name="password2" ng-model="password2" required ng-minlength="8" placeholder="Please enter your password! ">
             </div>
             <span ng-show="form.password2.$touched && form.password2.$error.required" style="color: #f00;">The password is required.</span>
             <span ng-show="form.password2.$touched && form.password2.$error.minlength" style="color: #f00;">The password least 8 characters.</span>
+            <input type="file" name="img" id="img">
             <div class="submit">
-                <input type="submit" class="btn btn-default btn-lg" value="Cancel" onclick="javascript: form.action='Add';" name="action" id="check">
-                <input type="submit" class="btn btn-default btn-lg" value="Submit" onclick="javascript: form.action='Add';" name="action" id="check">
+                <input type="reset" class="btn btn-default btn-lg" value="Cancel" name="cancel" id="reset">
+                <input type="submit" class="btn btn-default btn-lg" value="Submit" name="action" id="check">
             </div>
         </div>
     </form>

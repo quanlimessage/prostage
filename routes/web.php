@@ -23,4 +23,6 @@ Route::post('Update','ProductController@postProductUpdate');
 Route::post('Delete','ProductController@postProductDelete');
 
 Route::get('createuser','UserController@getCreateUser');
+Route::post('createuser','UserController@CreateUser');
+
 Route::get('listuser','UserController@getListUser');

@@ -64,8 +64,8 @@
                         <a href="#"><i class="fa fa-users fa-lg"></i> Users <span class="arrow"></span> </a>
                     </li>
                     <ul class="sub-menu collapse" id="user">
-                        <li><a href="{{url('listuser')}}">List user</a></li>
                         <li><a href="{{url('createuser')}}">Create user</a></li>
+                        <li><a href="{{url('listuser')}}">User manager</a></li>
                     </ul>
                 </ul>
             </div>

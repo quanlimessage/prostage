@@ -19,8 +19,8 @@
             $messages = [
                 'email.required' => 'Email is required.',
                 'email.email' => 'Invalid email address.',
-                'password.required' => 'Password is required..',
-                'password.min' => 'Password must contain at least 8 characters',
+                'password.required' => 'Password is required.',
+                'password.min' => 'Password must contain at least 8 characters.',
             ];
             $validator = Validator::make($request->all(), $rules, $messages);
     
