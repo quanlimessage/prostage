@@ -1,0 +1,80 @@
+===Database prostage
+
+== Table structure for table migrations
+
+|------
+|Column|Type|Null|Default
+|------
+|//**id**//|int(10)|No|
+|migration|varchar(255)|No|
+|batch|int(11)|No|
+== Dumping data for table migrations
+
+|6|2014_10_12_000000_create_users_table|1
+|7|2014_10_12_100000_create_password_resets_table|1
+|8|2017_05_08_074624_create_server_table|2
+== Table structure for table password_resets
+
+|------
+|Column|Type|Null|Default
+|------
+|email|varchar(255)|No|
+|token|varchar(255)|No|
+|created_at|timestamp|Yes|NULL
+== Dumping data for table password_resets
+
+== Table structure for table product
+
+|------
+|Column|Type|Null|Default
+|------
+|//**id**//|int(10)|No|
+|name|varchar(255)|No|
+|price|varchar(255)|No|
+|created_at|timestamp|Yes|NULL
+|updated_at|timestamp|Yes|NULL
+== Dumping data for table product
+
+|4|Sản Phẩm 2|100000|NULL|NULL
+|5|Sản Phẩm 3|800000|NULL|NULL
+|6|Sản Phẩm 4|700000|NULL|NULL
+|7|Sản Phẩm 5|600000|NULL|2017-04-13 01:40:43
+|8|Sản Phẩm 6|100000|NULL|2017-04-13 01:43:36
+|9|Sản Phẩm 7|500000|NULL|2017-04-13 01:43:50
+|10|Sản Phẩm 8|800000|NULL|2017-04-13 01:44:49
+== Table structure for table server
+
+|------
+|Column|Type|Null|Default
+|------
+|//**id**//|int(10)|No|
+|name|varchar(255)|No|
+|user|varchar(255)|No|
+|ftp|varchar(255)|No|
+|ssh|varchar(255)|No|
+|password|varchar(255)|No|
+|created_at|timestamp|Yes|NULL
+|updated_at|timestamp|Yes|NULL
+== Dumping data for table server
+
+|1|ffffff|ssss|sss|sss|sss|2017-05-09 09:38:35|2017-05-09 09:38:35
+|2|33|33|333|33|33|2017-05-09 06:53:43|2017-05-09 06:53:43
+|3|sss|ddd|dd|dd|dddd|2017-05-09 06:54:20|2017-05-09 06:54:20
+|4|ddd|ddd|dd|ddd|ddd|2017-05-09 06:55:06|2017-05-09 06:55:06
+== Table structure for table users
+
+|------
+|Column|Type|Null|Default
+|------
+|//**id**//|int(10)|No|
+|name|varchar(255)|No|
+|image|varchar(255)|No|
+|**email**|varchar(255)|No|
+|password|varchar(255)|No|
+|remember_token|varchar(100)|Yes|NULL
+|created_at|timestamp|Yes|NULL
+|updated_at|timestamp|Yes|NULL
+== Dumping data for table users
+
+|1|tri|11|tri@gmail.com|$2y$10$ux6XCTMXy2BEPYR1Gm3N9OSZfU8kAWLa7vgvPAsbWjngSNDgG3dqO|Hf4FfR0gB7l6sYpGTlHEndpRui49DqZtKpO7NWnhfyaAq7Ftd9xTgv1w7dFa|2017-05-09 01:17:00|2017-05-09 01:17:00
+|2|Phạm Quốc trí|1494292905.IMG_18042017_132744_0.png|p_tri@stagegroup.jp|$2y$10$q2xn/h4.urlknqeGSSpgwOqQWebN6uzA2BmDqZ7v8Ah3641YQhDNi|NULL|2017-05-09 01:21:45|2017-05-09 01:21:45
