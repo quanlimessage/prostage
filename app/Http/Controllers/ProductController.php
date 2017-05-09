@@ -1,11 +1,12 @@
 <?php
-
 namespace App\Http\Controllers;
 use App\Flight;
-use Illuminate\Http\Request;
 use App\Product;
 use Auth,DateTime;
 use App\Http\Request\ProductAddRequest;
+
+use Illuminate\Http\Request;
+
 class ProductController extends Controller
 {
     public function getProduct () {

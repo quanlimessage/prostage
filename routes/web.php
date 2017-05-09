@@ -26,3 +26,9 @@ Route::get('createuser','UserController@getCreateUser');
 Route::post('createuser','UserController@CreateUser');
 
 Route::get('listuser','UserController@getListUser');
+
+Route::get('server','ServerController@getServer');
+
+Route::post('insertserver','ServerController@postServerInsert');
+Route::post('updateserver','ServerController@postServerUpdate');
+Route::post('deleteserver','ServerController@postServerDelete');

@@ -3,6 +3,11 @@ body {
     //background-image: url('../image/background.jpg');
     margin: 0px;
     padding: 0px;
+    color: #73879C;
+    font-family: "Helvetica Neue",Roboto,Arial,"Droid Sans",sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.471;
 }
 
 #main {
@@ -230,4 +235,17 @@ body {
 .submit{
     text-align: center;
     margin-top: 20px;
+}
+
+form td{
+    vertical-align: central !important;
+}
+
+.headings{
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.table-responsive td{
+    font-size: 16px;
 }
