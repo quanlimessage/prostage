@@ -11,24 +11,27 @@
 |
 */
 
-Route::get('login','LoginController@getLogin');
-Route::post('login','LoginController@postLogin');
+Route::get('admin/login','LoginController@getLogin');
+Route::post('admin/login','LoginController@postLogin');
 
-Route::get('','HomeController@getIndex');
-Route::get('logout','HomeController@getLogout');
+Route::get('admin','HomeController@getIndex');
+Route::get('admin/logout','HomeController@getLogout');
 
-Route::get('product',['as' => 'getProduct', 'uses' => 'ProductController@getProduct']);
-Route::post('Add','ProductController@postProductAdd');
-Route::post('Update','ProductController@postProductUpdate');
-Route::post('Delete','ProductController@postProductDelete');
+Route::get('admin/product',['as' => 'getProduct', 'uses' => 'ProductController@getProduct']);
+Route::post('admin/Add','ProductController@postProductAdd');
+Route::post('admin/Update','ProductController@postProductUpdate');
+Route::post('admin/Delete','ProductController@postProductDelete');
 
-Route::get('createuser','UserController@getCreateUser');
-Route::post('createuser','UserController@CreateUser');
+Route::get('admin/createuser','UserController@getCreateUser');
+Route::post('admin/createuser','UserController@CreateUser');
 
-Route::get('listuser','UserController@getListUser');
+Route::get('admin/listuser','UserController@getListUser');
 
-Route::get('server','ServerController@getServer');
+Route::get('admin/server','ServerController@getServer');
 
-Route::post('insertserver','ServerController@postServerInsert');
-Route::post('updateserver','ServerController@postServerUpdate');
-Route::post('deleteserver','ServerController@postServerDelete');
+Route::post('admin/insertserver','ServerController@postServerInsert');
+Route::post('admin/updateserver','ServerController@postServerUpdate');
+Route::post('admin/deleteserver','ServerController@postServerDelete');
+
+
+

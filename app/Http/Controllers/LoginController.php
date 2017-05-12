@@ -31,7 +31,7 @@
                 $password = $request->input('password');
     
                 if( Auth::attempt(['email' => $email, 'password' =>$password], $request->has('remember'))) {
-                    return redirect()->intended('/');
+                    return redirect()->intended('admin');
                 } else {
                     $errors = new MessageBag(['errorlogin' => 'Email or passwords not correct.']);
                     return redirect()->back()->withInput()->withErrors($errors);

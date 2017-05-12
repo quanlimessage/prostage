@@ -14,7 +14,7 @@
     </head>
     <body ng-app="">
         <div class="nav-side-menu">
-            <div class="brand"><a href="{{url('')}}"><img src="../image/logo.png" alt="logo"></a></div>
+            <div class="brand"><a href="{{url('admin')}}"><img src="../image/logo.png" alt="logo"></a></div>
             <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
 
             <div class="menu-list">
@@ -30,7 +30,7 @@
                         <a href=""><i class="fa fa-gift fa-lg"></i> Product <span class="arrow"></span></a>
                     </li>
                     <ul class="sub-menu collapse" id="products">
-                        <li class="active"><a href="{{url('product')}}">Product manager</a></li>
+                        <li class="active"><a href="{{url('admin/product')}}">Product management</a></li>
                         <li><a href="#">Product2</a></li>
                     </ul>
 
@@ -39,7 +39,7 @@
                         <a href="#"><i class="fa fa-globe fa-lg"></i> Server <span class="arrow"></span></a>
                     </li>
                     <ul class="sub-menu collapse" id="service">
-                        <li><a href="{{url('server')}}">Server management</a></li>
+                        <li><a href="{{url('admin/server')}}">Server management</a></li>
                         <li>New Server 2</li>
                         <li>New Server 3</li>
                     </ul>
@@ -65,8 +65,8 @@
                         <a href="#"><i class="fa fa-users fa-lg"></i> Users <span class="arrow"></span> </a>
                     </li>
                     <ul class="sub-menu collapse" id="user">
-                        <li><a href="{{url('createuser')}}">Create user</a></li>
-                        <li><a href="{{url('listuser')}}">User manager</a></li>
+                        <li><a href="{{url('admin/createuser')}}">Create user</a></li>
+                        <li><a href="{{url('admin/listuser')}}">User management</a></li>
                     </ul>
                 </ul>
             </div>
@@ -97,7 +97,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="{{url('logout')}}">
+                    <a href="{{url('admin/logout')}}">
                         <p>Log out</p>
                     </a>
                 </li>

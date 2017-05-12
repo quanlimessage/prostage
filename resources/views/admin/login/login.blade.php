@@ -18,7 +18,7 @@
                 <div class="row">
                     <div class="col-sm-3"></div>
                     <div class="form-group modal-content col-sm-6 modal-fix">
-                        <form action="{{url('login')}}" method="POST" role="form">
+                        <form action="{{url('admin/login')}}" method="POST" role="form">
                             <div class="form-fix">
                                 <h2 class="modal-header">Please sign in</h2>
                                 <div class="modal-body">
@@ -59,6 +59,5 @@
                 </div>
             </div>
         </section>
-
     </body>
 </html>
