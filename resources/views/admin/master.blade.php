@@ -1,3 +1,16 @@
+<?php
+    $rightmenu = Auth::user()->menu;
+    $rightmenu = explode(",",$rightmenu);
+    $nameuser = Auth::user()->name;
+    $imageuser = Auth::user()->image;
+    if((Auth::user()->level) == 1){
+        $leveluser = "Super admin";
+    }else if((Auth::user()->level) == 2){
+        $leveluser = "Admin";
+    }else{
+        $leveluser = "member";
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -20,88 +33,49 @@
             <div class="menu-list">
 
                 <ul id="menu-content" class="menu-content collapse out">
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-dashboard fa-lg"></i> Dashboard
-                        </a>
-                    </li>
+                    <li class="active"><i class="fa fa-bars" aria-hidden="true"></i> MENU</li>
 
-                    <li data-toggle="collapse" data-target="#products" class="collapsed active">
-                        <a href=""><i class="fa fa-gift fa-lg"></i> Product <span class="arrow"></span></a>
+                    @foreach($rightmenu as $value)
+                    <li data-toggle="collapse" data-target="#{!! $value !!}" class="collapsed">
+                        <a href="#"><i class="fa fa-globe fa-lg"></i> {!! $value !!} <span class="arrow"></span></a>
                     </li>
-                    <ul class="sub-menu collapse" id="products">
-                        <li class="active"><a href="{{url('admin/product')}}">Product management</a></li>
-                        <li><a href="#">Product2</a></li>
+                    <ul class="sub-menu collapse" id="{!! $value !!}">
+                        <li><a href="<?php echo url("admin/".$value);?>">{!! $value !!} management</a></li>
                     </ul>
-
-
-                    <li data-toggle="collapse" data-target="#service" class="collapsed">
-                        <a href="#"><i class="fa fa-globe fa-lg"></i> Server <span class="arrow"></span></a>
-                    </li>
-                    <ul class="sub-menu collapse" id="service">
-                        <li><a href="{{url('admin/server')}}">Server management</a></li>
-                        <li>New Server 2</li>
-                        <li>New Server 3</li>
-                    </ul>
-
-
-                    <li data-toggle="collapse" data-target="#new" class="collapsed">
-                        <a href="#"><i class="fa fa-car fa-lg"></i> New <span class="arrow"></span></a>
-                    </li>
-                    <ul class="sub-menu collapse" id="new">
-                        <li>New New 1</li>
-                        <li>New New 2</li>
-                        <li>New New 3</li>
-                    </ul>
-
-
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-user fa-lg"></i> Profile
-                        </a>
-                    </li>
-
-                    <li data-toggle="collapse" data-target="#user" class="collapsed">
-                        <a href="#"><i class="fa fa-users fa-lg"></i> Users <span class="arrow"></span> </a>
-                    </li>
-                    <ul class="sub-menu collapse" id="user">
-                        <li><a href="{{url('admin/createuser')}}">Create user</a></li>
-                        <li><a href="{{url('admin/listuser')}}">User management</a></li>
-                    </ul>
+                    @endforeach
                 </ul>
             </div>
         </div>
-        <nav class="navbar navfix fixed-top navbar-toggleable-md navbar-dark double-nav scrolling-navbar">
-            <!--Navigation icons-->
-            <ul class="nav navbar-nav width300 navbar-right">
-                <li>
-                    <a href="">
-                        <p>Account</p>
-                    </a>
-                </li>
+        <nav class="navbar navfix" style="height: 54px">
+            <ul class="nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <p>
-						Dropdown
+                        <p class="profile">
+                            @if(file_exists(public_path()."/upload/user/".$imageuser))
+                                <img src="../upload/user/{!! $imageuser !!}" class="user-image" width="50" alt="img">
+                            @else
+                                <img src="../upload/user/noavatar.jpg" class="user-image" width="50" alt="img">
+                            @endif
+						    {!! $nameuser !!}
                             <b class="caret"></b>
                         </p>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
+                        <li>
+                            <div>
+                                @if(file_exists(public_path()."/upload/user/".$imageuser))
+                                    <img src="../upload/user/{!! $imageuser !!}" class="user-image" width="80" alt="img">
+                                @else
+                                    <img src="../upload/user/noavatar.jpg" class="user-image" width="80" alt="img">
+                                @endif
+                                <p>
+						            {!! $nameuser !!} ({!! $leveluser !!})
+                                </p>
+                            </div>
+                        </li>
+                        <li class="logout"><a href="{{url('admin/logout')}}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a href="{{url('admin/logout')}}">
-                        <p>Log out</p>
-                    </a>
-                </li>
-                <li class="separator hidden-lg hidden-md"></li>
             </ul>
         </nav>
         @yield('content')

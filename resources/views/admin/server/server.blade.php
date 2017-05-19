@@ -16,16 +16,16 @@
             @if(!$errors->isEmpty())
             <div class="alert alert-danger">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-				<ul>
+                <ul>
                     @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
+                    <li>{{ $error }}</li>
                     @endforeach
                 </ul>
             </div>
 			@endif
             <div class="x_content">
                 <div class="table-responsive">
-                    <table class="table table-striped jambo_table bulk_action">
+                    <table class="table table-striped jambo_table bulk_action" style="text-align: center;">
                         <thead>
                         <tr class="headings">
                             <th>Name of Server</th>
@@ -57,20 +57,49 @@
                             </td>
                         </tr>
                         @endforeach
-                            <form action="" method="POST" role="form">
-                                <tr>
-                                    <td><input type="text" class="form-control" name="name"></td>
-                                    <td><input type="text" class="form-control" name="time"></td>
-                                    <td><input type="text" class="form-control" name="user"></td>
-                                    <td><input type="text" class="form-control" name="ftp"></td>
-                                    <td><input type="text" class="form-control" name="ssh"></td>
-                                    <td><input type="text" class="form-control" name="password"></td>
-                                    <td>
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <button class="btn btn-primary" onclick="javascript: form.action='insertserver';">Insert</button>
-                                    </td>
-                                </tr>
-                            </form>
+                        <form action="" method="POST" role="form" enctype="multipart/form-data">
+                            <div class="modal fade" id="addserver" role="dialog">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h2 class="modal-title">CREATE USER</h2>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <label for="usr">Name of server:</label>
+                                                <input type="text" name="name" class="form-control" id="usr">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="usr">User:</label>
+                                                <input type="text" name="user" class="form-control" id="usr">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="usr">FTP:</label>
+                                                <input type="text" name="ftp" class="form-control" id="usr">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="usr">SSH:</label>
+                                                <input type="text" name="ssh" class="form-control" id="usr">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="usr">Password:</label>
+                                                <input type="text" name="password" class="form-control" id="usr">
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <div class="submit">
+                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                <input type="hidden" name="id" value="{!! $val['id'] !!}">
+                                                <input type="reset" class="btn btn-primary btn-lg" value="Cancel" name="cancel" id="reset">
+                                                <input type="submit" class="btn btn-primary btn-lg" value="Submit" onclick="javascript: form.action='insertserver'" name="action" id="check">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
                         </tbody>
                     </table>
                 </div>
@@ -116,6 +145,7 @@
                     </div>
                 </form>
                 @endforeach
+                <input type="button" value="CREATE SERVER" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addserver">
             </div>
         </div>
     </div>

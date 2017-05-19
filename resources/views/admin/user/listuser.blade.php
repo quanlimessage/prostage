@@ -4,7 +4,6 @@
     <div class="container">
         <div class="page-header">
             <h1>List user</h1>
-            <p>please click to name user to show the user information! </p>
         </div>
         <table class="table table-striped">
             @foreach($user_data as $val)
@@ -17,7 +16,6 @@
         @foreach($user_data as $val)
         <div class="modal fade" id="{!! $val['id'] !!}" role="dialog">
             <div class="modal-dialog">
-
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header">
@@ -35,7 +33,6 @@
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
-
             </div>
         </div>
         @endforeach

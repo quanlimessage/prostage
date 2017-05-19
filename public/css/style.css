@@ -14,14 +14,19 @@ body {
     margin-left: 300px;
 }
 
+th {
+    text-align: center;
+}
+
 .navfix {
-    background-color: rgba(255, 255, 255, 0.55); !important;
+    background-color: rgba(255, 255, 255, 0.55);
+    !important;
     border-radius: 0px;
     border-color: #e7e7e7;
 }
 
-.width300{
-    width: 310px;
+.width300 {
+    width: 234px;
 }
 
 #main ul {
@@ -232,20 +237,42 @@ body {
     text-align: center;
 }
 
-.submit{
+.submit {
     text-align: center;
     margin-top: 20px;
 }
 
-form td{
+form td {
     vertical-align: central !important;
 }
 
-.headings{
+.headings {
     font-size: 17px;
     font-weight: bold;
 }
 
-.table-responsive td{
+.table-responsive td {
     font-size: 16px;
+}
+
+.nav .profile {
+    font-size: 16px;
+}
+
+.nav .user-image {
+    border-radius: 50%;
+}
+
+.nav > li > a {
+    padding: 0 27px;
+}
+
+.dropdown-menu > li {
+    text-align: center;
+}
+
+.dropdown-menu > .logout {
+    width: 230px;
+    height: 44px;
+    font-size: 24px;
 }

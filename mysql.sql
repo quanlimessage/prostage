@@ -1,9 +1,9 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 4.6.6
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql
--- Generation Time: May 16, 2017 at 08:33 AM
+-- Generation Time: May 19, 2017 at 04:10 AM
 -- Server version: 5.7.17
 -- PHP Version: 7.0.16
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `prostage`
 --
+CREATE DATABASE IF NOT EXISTS `prostage` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `prostage`;
 
 -- --------------------------------------------------------
 
@@ -102,10 +104,10 @@ CREATE TABLE `server` (
 --
 
 INSERT INTO `server` (`id`, `name`, `user`, `ftp`, `ssh`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'ffffff', 'ssss', 'sss', 'sss', 'sss', '2017-05-09 09:38:35', '2017-05-09 09:38:35'),
-(2, '33', '33', '333', '33', '33', '2017-05-09 06:53:43', '2017-05-09 06:53:43'),
+(2, '33', '33', '333', '33', '33', '2017-05-18 02:17:26', '2017-05-18 02:17:26'),
 (3, 'sss', 'ddd', 'dd', 'dd', 'dddd', '2017-05-09 06:54:20', '2017-05-09 06:54:20'),
-(4, 'ddd', 'ddd', 'dd', 'ddd', 'ddd', '2017-05-10 09:45:19', '2017-05-10 09:45:19');
+(5, 'eee', 'ccccc', 'dddd', 'eeee', 'ffffff', '2017-05-18 02:30:50', '2017-05-18 02:30:51'),
+(6, 'aaaa', 'cccc', 'dddd', 'eeee', 'fffff', '2017-05-18 02:31:10', '2017-05-18 02:31:10');
 
 -- --------------------------------------------------------
 
@@ -116,6 +118,8 @@ INSERT INTO `server` (`id`, `name`, `user`, `ftp`, `ssh`, `password`, `created_a
 CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `level` int(11) DEFAULT NULL,
+  `menu` text CHARACTER SET utf8,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -128,9 +132,11 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `image`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'tri', '11', 'tri@gmail.com', '$2y$10$ux6XCTMXy2BEPYR1Gm3N9OSZfU8kAWLa7vgvPAsbWjngSNDgG3dqO', 'sjPnyvPHiNhsUZKiiCJt9lNpOKJ7VK94qgmMpquAGX1oNfb0M1paJUMTd3op', '2017-05-09 01:17:00', '2017-05-09 01:17:00'),
-(2, 'Phạm Quốc trí', '1494292905.IMG_18042017_132744_0.png', 'p_tri@stagegroup.jp', '$2y$10$q2xn/h4.urlknqeGSSpgwOqQWebN6uzA2BmDqZ7v8Ah3641YQhDNi', NULL, '2017-05-09 01:21:45', '2017-05-09 01:21:45');
+INSERT INTO `users` (`id`, `name`, `level`, `menu`, `image`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Phạm Quốc Trí', 1, 'Server,User', '1495073384.17309854_710068575832055_405670051339508300_n.jpg', 'tri@gmail.com', '$2y$10$ux6XCTMXy2BEPYR1Gm3N9OSZfU8kAWLa7vgvPAsbWjngSNDgG3dqO', '5F7rxTMnFjxxpRtQzj9MYKqcyo1eahW0upcQt0xyJvN3cYzhUPr7JDaf0dUF', '2017-05-09 01:17:00', '2017-05-18 02:09:44'),
+(7, 'Thảo uy', 2, 'Server', '1495068575.C360_2015-02-01-16-09-55-033.jpg', 'p_uy@stagegroup.jp', '$2y$10$bGsompRn0kad81Uh2dMgTujYYVp04gHgFrzIUZA4OvRWTImj7sAP.', 'cMitokvjvZF134OtvUBYOduFzLcFwmVkaQIT3HLaUlAAFgI6PzXzkQMNyYI4', '2017-05-17 04:45:17', '2017-05-18 00:49:35'),
+(8, 'Pham Tri', 3, 'Server', '1495024403.18450175_1022129961255891_508979820_n.jpg', 'quoctri111222333@gmail.com', '$2y$10$pyBlo1Aa3kKvfHJBhdQdFuU6fDrGydC4XI6v0BsWe/NDdhbUwiOFi', NULL, '2017-05-17 10:38:25', '2017-05-17 12:33:23'),
+(10, 'Kyoji Kay Yamada', 1, 'Server,User', '1495068963.1724785i.jpeg', 'k_yamada@stagegroup.jp', '$2y$10$xZAaHJnYiASmKHzVWj8zE.UIDzr/aGucw8EYp0aUQgkHR678Nn.VG', '43lZUcMrNayhcA3xPvSSGMmjMscM4cuGClqHkeHNa32T2FILmLWAWannzT94', '2017-05-18 00:56:03', '2017-05-18 00:56:03');
 
 --
 -- Indexes for dumped tables
@@ -185,12 +191,12 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `server`
 --
 ALTER TABLE `server`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
